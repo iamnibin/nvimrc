@@ -45,8 +45,8 @@ return require("packer").startup(function(use)
 
   use("~/personal/harpoon")
 
-  use("iamnibin/vim-be-good")
-  use("iamibin/refactoring.nvim")
+  use("theprimeagen/vim-be-good")
+  use("theprimeagen/refactoring.nvim")
   use("mbbill/undotree")
   use("tpope/vim-fugitive")
   --use("nvim-treesitter/nvim-treesitter-context");

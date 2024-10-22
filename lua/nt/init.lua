@@ -1,7 +1,7 @@
-require("iamnibin.set")
-require("iamibin.remap")
+require("nt.set")
+require("nt.remap")
 
-require("iamnibin.lazy_init")
+require("nt.lazy_init")
 
 -- DO.not
 -- DO NOT INCLUDE THIS
