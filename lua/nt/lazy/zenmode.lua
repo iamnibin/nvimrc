@@ -5,7 +5,7 @@ return {
         vim.keymap.set("n", "<leader>zz", function()
             require("zen-mode").setup {
                 window = {
-                    width = 90,
+                    width = 120,
                     options = { }
                 },
             }
@@ -13,14 +13,14 @@ return {
             vim.wo.wrap = false
             vim.wo.number = true
             vim.wo.rnu = true
-            ColorMyPencils()
+            -- ColorMyPencils()
         end)
 
 
         vim.keymap.set("n", "<leader>zZ", function()
             require("zen-mode").setup {
                 window = {
-                    width = 80,
+                    width = 120,
                     options = { }
                 },
             }
@@ -29,7 +29,7 @@ return {
             vim.wo.number = false
             vim.wo.rnu = false
             vim.opt.colorcolumn = "0"
-            ColorMyPencils()
+            -- ColorMyPencils()
         end)
     end
 }

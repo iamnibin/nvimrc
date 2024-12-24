@@ -1,4 +1,3 @@
-
 return {
     "nvim-tree/nvim-tree.lua",
     version = "*",
@@ -6,18 +5,16 @@ return {
     dependencies = {
         "nvim-tree/nvim-web-devicons",
     },
-    on_attach = function(bufnr)
-        local function map(mode, l, r, opts)
-            opts = opts or {}
-            opts.buffer = bufnr
-            vim.keymap.set(mode, l, r, opts)
-        end
-
-        -- Navigation
-        map("n", "<leader>el", ":NvimTreeToggle")
-    end,
     config = function()
-        require("nvim-tree").setup {}
+        require("nvim-tree").setup({
+            actions = {
+                open_file = {
+                    quit_on_open = true,
+                },
+            },
+        })
+
+        vim.keymap.set("n", "<leader>el", ":NvimTreeToggle<CR>", { silent = true, noremap = true })
     end,
 }
 

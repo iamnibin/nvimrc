@@ -21,10 +21,10 @@ end)
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- next greatest remap ever : asbjornHaland
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
-vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 -- This is going to get me cancelled
 vim.keymap.set("i", "<C-c>", "<Esc>")
@@ -47,7 +47,7 @@ vim.keymap.set(
     "oif err != nil {<CR>}<Esc>Oreturn err<Esc>"
 )
 
-vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.dotfiles/nvim/.config/nvim/lua/iamnibin/packer.lua<CR>");
+vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.dotfiles/nvim/.config/nvim/lua/nt/packer.lua<CR>");
 vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 
 vim.keymap.set("n", "<leader><leader>", function()
@@ -56,22 +56,30 @@ end)
 
 
 local function clear_cmdarea()
-  vim.defer_fn(function()
-    vim.api.nvim_echo({}, false, {})
-  end, 800)
+    vim.defer_fn(function()
+        vim.api.nvim_echo({}, false, {})
+    end, 800)
 end
 
 vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
-  callback = function()
-    if #vim.api.nvim_buf_get_name(0) ~= 0 and vim.bo.buflisted then
-      vim.cmd "silent w"
+    callback = function()
 
-      local time = os.date "%I:%M %p"
+        local buftype = vim.bo.buftype
+        local filetype = vim.bo.filetype
+        if filetype == "fugitive" or buftype == "terminal" then
+            return
+        end
 
-      -- print nice colored msg
-      vim.api.nvim_echo({ { "󰄳", "LazyProgressDone" }, { " file autosaved at " .. time } }, false, {})
 
-      clear_cmdarea()
-    end
-  end,
+        if #vim.api.nvim_buf_get_name(0) ~= 0 and vim.bo.buflisted then
+            vim.cmd "silent w"
+
+            local time = os.date "%I:%M %p"
+
+            -- print nice colored msg
+            vim.api.nvim_echo({ { "💾", "LazyProgressDone" }, { " file autosaved at " .. time } }, false, {})
+
+            clear_cmdarea()
+        end
+    end,
 })
