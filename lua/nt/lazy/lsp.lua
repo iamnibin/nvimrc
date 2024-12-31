@@ -30,6 +30,7 @@ return {
                 "rust_analyzer",
                 "pyright",
                 "ts_ls",
+                "gopls",
             },
             handlers = {
                 function(server_name) -- default handler (optional)
