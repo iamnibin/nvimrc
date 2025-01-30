@@ -2,8 +2,8 @@ function ColorMyPencils(color)
   color = color or "rose-pine"
   vim.cmd.colorscheme(color)
 
-  vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-  vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+  -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+  -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 end
 
 return {
@@ -44,8 +44,8 @@ return {
               -- your configuration comes here
               -- or leave it empty to use the default settings
               style = "moon",         -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
-              transparent = true,     -- Enable this to disable setting the background color
-              terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
+              transparent = false,     -- Enable this to disable setting the background color
+              terminal_colors = false, -- Configure the colors used when opening a `:terminal` in Neovim
               styles = {
                   -- Style to be applied to different syntax groups
                   -- Value is any valid attr-list value for `:help nvim_set_hl`
@@ -66,12 +66,10 @@ return {
     name = "rose-pine",
     config = function()
       require('rose-pine').setup({
-        variant = 'auto',
-        disable_background = true,
+        disable_background = false,
+        variant = 'moon',
       })
-
       vim.cmd("colorscheme rose-pine")
-
       ColorMyPencils()
     end
   },
@@ -82,24 +80,24 @@ return {
     opts = {
       filetypes = { "css", "scss", "less", "sass", "html", "json", "javascript", "typescript", "javascriptreat", "typescriptreact", "vue", "html" },
       user_default_options = {
-        RGB = true,                             -- #RGB hex codes
-        RRGGBB = true,                          -- #RRGGBB hex codes
-        names = false,                          -- "Name" codes like Blue or blue
-        RRGGBBAA = true,                        -- #RRGGBBAA hex codes
-        AARRGGBB = true,                        -- 0xAARRGGBB hex codes
-        rgb_fn = true,                          -- CSS rgb() and rgba() functions
-        hsl_fn = true,                          -- CSS hsl() and hsla() functions
-        css = true,                             -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
-        css_fn = true,                          -- Enable all CSS *functions*: rgb_fn, hsl_fn
-        tailwind = true,                        -- Enable Tailwind's `bg-` and `text-` utilities
+        RGB = true,                   -- #RGB hex codes
+        RRGGBB = true,                -- #RRGGBB hex codes
+        names = false,                -- "Name" codes like Blue or blue
+        RRGGBBAA = true,              -- #RRGGBBAA hex codes
+        AARRGGBB = true,              -- 0xAARRGGBB hex codes
+        rgb_fn = true,                -- CSS rgb() and rgba() functions
+        hsl_fn = true,                -- CSS hsl() and hsla() functions
+        css = true,                   -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
+        css_fn = true,                -- Enable all CSS *functions*: rgb_fn, hsl_fn
+        tailwind = true,              -- Enable Tailwind's `bg-` and `text-` utilities
         -- Available modes for `mode`: foreground, background,  virtualtext
-        mode = "virtualtext",                   -- Set the display mode.
+        mode = "virtualtext",         -- Set the display mode.
         -- Available methods are: "name", "rgb", "hsl", "ansi", "hex", "hsluv"
-        method = "name",                        -- Set the method to convert RGB, RGBA, HSL, HSLA, ANSI, HEX, HSLUV
+        method = "name",              -- Set the method to convert RGB, RGBA, HSL, HSLA, ANSI, HEX, HSLUV
         -- Available properties are: "foreground", "background" or "all"
-        property = "foreground",                -- Set the property that is converted
-        custom_patterns = {                     -- Define how you want the plugin to convert a specific hex color to its name
-          "(%d+%s+%d+%%?%s+%d+%%?) ",           -- Custom HSL pattern
+        property = "foreground",      -- Set the property that is converted
+        custom_patterns = {           -- Define how you want the plugin to convert a specific hex color to its name
+          "(%d+%s+%d+%%?%s+%d+%%?) ", -- Custom HSL pattern
         }
       },
 
