@@ -6,15 +6,15 @@ return {
     "rcarriga/nvim-notify",
   },
   config = function()
-    require("notify").setup {
-      background_colour = "#282c34"
-    }
+    -- require("notify").setup {
+    --   background_colour = "#282c34"
+    -- }
     require("noice").setup {
       routes = {
-        {
-          view = "notify",
-          filter = { event = "msg_showmode" },
-        },
+        -- {
+        --   view = "notify",
+        --   filter = { event = "msg_showmode" },
+        -- },
       },
       lsp = {
         -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
