@@ -1,6 +1,6 @@
 return {
-  -- "lewis6991/gitsigns.nvim",
-  -- event = { "BufReadPost", "BufNewFile" },
+  "lewis6991/gitsigns.nvim",
+  event = { "BufReadPost", "BufNewFile" },
   -- opts = {
   --   on_attach = function(bufnr)
   --     local gitsigns = require "gitsigns"
@@ -25,6 +25,6 @@ return {
   --     map("n", "<leader>hd", gitsigns.diffthis)
   --     map("n", "<leader>ub", gitsigns.toggle_current_line_blame)
   --     map({ "o", "x" }, "ih", ":<c-u>Gitsigns select_hunk<cr>")
-  --   end,
+    -- end,
   -- },
 }

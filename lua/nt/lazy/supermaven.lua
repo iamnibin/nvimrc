@@ -8,4 +8,3 @@ return {
     vim.keymap.set("n", "<leader>psup", api.stop)
   end,
 }
-

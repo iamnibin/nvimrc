@@ -7,8 +7,7 @@ return {
 
     local opts = {
       sources = {
-        null_ls.builtins.formatting.prettierd,
-        null_ls.builtins.formatting.stylua,
+        null_ls.builtins.formatting.prettierd
       },
       on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then
@@ -20,7 +19,7 @@ return {
             group = augroup,
             buffer = bufnr,
             callback = function()
-              vim.lsp.buf.format({ bufnr = bufnr })
+              vim.lsp.buf.format({ bufnr = bufnr, timeout_ms = 6000 })
             end,
           })
         end
